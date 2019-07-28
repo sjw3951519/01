@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>员工合同到期时间</title>
+</head>
+<body>
+<script>
+    var inYear=parseInt(prompt("请输入入职年份"));
+    var inMonth=parseInt(prompt("请输入入职月份"));
+    var inDate=parseInt(prompt("请输入入职日期"));
+
+    function getInTime(year,month,date){
+
+        var inDate=new Date(year,month-1,date);
+        document.write("该员工入职时间为:"+inDate.getFullYear()+"-"+(inDate.getMonth()+1)+"-"+inDate.getDate()+"<br />");
+
+    }
+
+    function getOutTime(year,month,date){
+
+        var outDate=new Date(year+3,month-1,date);
+        document.write("该员工离职时间为:"+outDate.getFullYear()+"-"+(outDate.getMonth()+1)+"-"+outDate.getDate()+"<br />");
+
+    }
+
+    getInTime(inYear,inMonth,inDate);
+    getOutTime(inYear,inMonth,inDate);
+</script>
+</body>
+</html>
+

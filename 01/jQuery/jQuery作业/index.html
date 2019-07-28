@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/css.css" type="text/css">
+    <title>慕课商城</title>
+</head>
+<body>
+    <!--主容器-->
+    <div class="main">
+        <div id="topPage"></div>
+        <!--右侧固定的导航栏-->
+        <div class="rightNav" id="rightNav">
+            <ul>
+                <li id="liOne">
+                    <p id="pOne"></p>
+                </li>
+                <li id="liTwo">
+                    <p id="pTwo"></p>
+                </li>
+                <li id="liThree">
+                    <p id="pThree"></p>
+                </li>
+                <li id="liFour">
+                    <p id="pFour"></p>
+                </li>
+                <li id="liFive">
+                    <p id="pFive"></p>
+                </li>
+            </ul>
+        </div>
+        <!--顶部-->
+        <div class="top">
+            <!--顶部导航栏-->
+            <div class="nav">
+                <!--左边导航栏-->
+                <ul class="one">
+                    <li><a class="red">亲，请登录</a></li>
+                    <li><a>免费注册</a></li>
+                    <li><a>手机逛慕淘</a></li>               
+                </ul>
+                <!--右边的导航栏-->
+                <ul class="two">
+                    <li id="firstLi">
+                        <div class="add" id="firstDiv">
+                            <div class="first"><a>我的慕淘</a><img src="ele/icon/22.png"></div>
+                            <div class="second"><a>已买到的宝贝</a></div>
+                            <div class="third"><a>我的足迹</a></div>
+                        </div>
+                    </li>
+                    <li id="secondLi">
+                        <div class="add" id="secondDiv">
+                            <div class="first"><a>收藏夹</a><img src="ele/icon/22.png"></div>
+                            <div class="second"><a>收藏的宝贝</a></div>
+                            <div class="third"><a>收藏的店铺</a></div>
+                        </div>
+                    </li>
+                    <li id="specialLi"><a>商品分类</a></li>
+                    <li id="thirdLi">    
+                        <div class="add-big" id="thirdDiv">
+                            <div class="first"><a>卖家中心</a><img src="ele/icon/22.png"></div>
+                            <div class="second"><a>免费开店</a></div>
+                            <div class="third"><a>已卖出的宝贝</a></div>
+                            <div class="fourth"><a>出售中的宝贝</a></div>
+                            <div class="fifth"><a>卖家服务市场</a></div>
+                            <div class="sixth"><a>卖家培训中心</a></div>
+                            <div class="seventh"><a>体验中心</a></div>
+                        </div></li>
+                    <li id="fourthLi">
+                        <div class="add" id="fourthDiv">
+                            <div class="first"><a>联系客服</a><img src="ele/icon/22.png"></div>
+                            <div class="second"><a>消费者客服</a></div>
+                            <div class="third"><a>卖家客服</a></div>
+                        </div>
+                    </li>
+                </ul>              
+            </div>
+            <hr>
+        </div>
+        <div class="logo">
+            <!-- logo图 -->
+            <div class="logoImg">  
+                <img src="ele/logo.png">
+            </div>
+            <!--搜索框-->
+            <div class="sousuo">
+                <form>
+                    <input type="text" placeholder="灵魂美食一元抢">
+                    <button>搜索</button>
+                </form>
+            </div>
+            <!--购物车-->
+            <div class="shopCar" id="shopCar">
+                <!--一直显示的部分-->
+                <div class="topCar" id="topCar">
+                    <img src="ele/icon/26.png" alt="" id="shopCarImg">
+                    <span>&nbsp;购物车</span>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span>0</span>
+                    <img src="ele/icon/23.png" id="shopCarArrow">
+                    <!--隐藏-->
+                    <div class="mainCar">
+                        <div class="word">最新加入的商品</div>
+                        <!--商品列表-->
+                        <div class="car">
+                            <div class="goods">
+                                <img src="ele/cart/1.png" class="firstImg">
+                                <div class="price">
+                                    <p class="pro"><a>adidas&nbsp;阿迪达斯&nbsp;训练&nbsp;男子</a></p>
+                                    <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>335</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>1</span></p>
+                                </div>
+                                <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/2.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>玉兰油多效防护三部曲套装</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>199</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>2</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/3.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>Apple&nbsp;iPhone&nbsp;7&nbsp;(A1660)</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>6188</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>1</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/4.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>飞利浦面条机&nbsp;HR2356/31</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>659</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>4</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/5.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>罗技G29&nbsp;力反馈游戏方向</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>2999</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>1</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/2.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>玉兰油多效防护三部曲套装</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>199</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>2</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/3.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>Apple&nbsp;iPhone&nbsp;7&nbsp;(A1660)</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>6188</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>1</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/4.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>飞利浦面条机&nbsp;HR2356/31</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>659</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>4</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                            <div class="goods">
+                                    <img src="ele/cart/5.png" class="firstImg">
+                                    <div class="price">
+                                        <p class="pro"><a>罗技G29&nbsp;力反馈游戏方向</a></p>
+                                        <p><span>&nbsp;&nbsp;￥&nbsp;&nbsp;</span><span>2999</span><span>&nbsp;&nbsp;x&nbsp;&nbsp;</span><span>1</span></p>
+                                    </div>
+                                    <img src="ele/close.gif" class="secondImg">
+                            </div>
+                        </div>
+                        <div class="bottomCar">
+                            <p>共&nbsp;<span>27</span>&nbsp;件商品&nbsp;&nbsp;共计&nbsp;￥&nbsp;&nbsp;<span>0.00</span></p>
+                            <input type="button" value="去购物车">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="top-nav">
+                <ul>
+                    <li><a>数码城</a></li>
+                    <li><a>天黑黑</a></li>
+                    <li><a>团购</a></li>
+                    <li><a>发现</a></li>
+                    <li><a>二手特价</a></li>
+                    <li><a>名品汇</a></li>
+                </ul>
+            </div>
+            <div class="left-nav" id="left-nav">
+                <div class="couldSee">
+                    <div class="tittle">
+                        <img src="ele/icon/18.png">
+                        <span>商品分类</span>
+                    </div>
+                    <ul class="goodsList" id="goodsList">
+                        <li>
+                            <span>家用电器</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>手机、&nbsp;运营商、&nbsp;数码</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>电脑、&nbsp;办公</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>家居、&nbsp;家具、&nbsp;家装、&nbsp;厨具</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>男装、&nbsp;女装、&nbsp;童装、&nbsp;内衣</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>化妆、&nbsp;清洁、&nbsp;宠物</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>运动户外、&nbsp;钟表</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>汽车、&nbsp;汽车用品</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>母婴、&nbsp;玩具乐器</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>食品、&nbsp;酒类、&nbsp;生鲜、&nbsp;特产</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>医药保健</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>图书、&nbsp;音像、&nbsp;电子书</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li>
+                            <span>彩票、&nbsp;旅行、&nbsp;充值、&nbsp;票务</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                        <li class="lastLi">
+                            <span>理财、&nbsp;众筹、&nbsp;白条、&nbsp;保险</span>
+                            <img src="ele/icon/23.png">
+                        </li>
+                    </ul>
+                </div>
+                <div class="canNotSee">
+                    <div class="bg" id="bg">
+                        <div class="inner-nav">
+                            <ul>
+                                <li>
+                                    <span class="goodsName">复读机</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                        <a>手机</a>
+                                        <a>对讲机</a>
+                                        <a>以旧换新</a>
+                                        <a>手机维修</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="goodsName">运营商</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                            <a>充话费/流量</a>
+                                            <a>170选号</a>
+                                            <a>合约机</a>
+                                            <a>办套餐</a>
+                                            <a>选号码</a>
+                                            <a>固话宽带</a>
+                                            <a>京东通信</a>
+                                            <a>中国移动</a>
+                                            <a>中国联通</a>
+                                            <a>中国电信</a>
+                                    </div>
+                                </li>
+                                <li> 
+                                    <span class="goodsName">MP3</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                            <a>手机壳</a>
+                                            <a>贴膜</a>
+                                            <a>手机存储卡</a>
+                                            <a>数据线</a>
+                                            <a>充电器</a>
+                                            <a>手机耳机</a>
+                                            <a>创意配件</a>
+                                            <a>手机饰品</a>
+                                            <a>手机电池</a>
+                                            <a>苹果周边</a>
+                                            <a>移动电源</a>
+                                            <a>蓝牙耳机</a>
+                                            <a>手机支架</a>
+                                            <a>车载配件</a>
+                                            <a>拍照配件</a>
+                                    </div>
+                                <li>
+                                    <span class="goodsName">乐视</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                            <a>数码相机</a>
+                                            <a>单电/微单相机</a>
+                                            <a>单反相机</a>
+                                            <a>拍立得</a>
+                                            <a>运动相机</a>
+                                            <a>摄像机</a>
+                                            <a>镜头</a>
+                                            <a>户外器材</a>
+                                            <a>影棚器材</a>
+                                            <a>冲印服务</a>
+                                            <a>数码相框</a>
+                                    </div>
+                                </li>
+                                <li>    
+                                    <span class="goodsName">VIVO</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                            <a>存储卡</a>
+                                            <a>三脚架/云台</a>
+                                            <a>相机包</a>
+                                            <a>滤镜</a>
+                                            <a>闪光灯/手柄</a>
+                                            <a>相机清洁/贴膜</a>
+                                            <a>机身附件</a>
+                                            <a>镜头附件</a>
+                                            <a>读卡器</a>
+                                            <a>支架</a>
+                                            <a>电池/充电器</a>
+                                    </div>
+                                <li>
+                                    <span class="goodsName">OPPO</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                            <a>耳机/耳麦</a>
+                                            <a>音响/音箱</a>
+                                            <a>便携音箱</a>
+                                            <a>收音机</a>
+                                            <a>麦克风</a>
+                                            <a>MP3/MP4</a>
+                                            <a>专业音频</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="goodsName">智能</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                            <a>智能手环</a>
+                                            <a>智能手表</a>
+                                            <a>智能眼镜</a>
+                                            <a>智能机器人</a>
+                                            <a>运动跟踪器</a>
+                                            <a>健康监测</a>
+                                            <a>智能配饰</a>
+                                            <a>智能家居</a>
+                                            <a>体感车</a>
+                                            <a>无人机</a>
+                                            <a>其他配件</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="goodsName">电子教育</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <div class="as">
+                                            <a>学生平板</a>
+                                            <a>点读机</a>
+                                            <a>早教益智</a>
+                                            <a>录音笔</a>
+                                            <a>电纸书</a>
+                                            <a>电子词典</a>
+                                            <a>复读机</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="inner-nav">
+                                <ul>
+                                    <li>
+                                        <span class="goodsName">电器</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                            <a>手机</a>
+                                            <a>对讲机</a>
+                                            <a>以旧换新</a>
+                                            <a>手机维修</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="goodsName">冰箱</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                                <a>充话费/流量</a>
+                                                <a>170选号</a>
+                                                <a>合约机</a>
+                                                <a>办套餐</a>
+                                                <a>选号码</a>
+                                                <a>固话宽带</a>
+                                                <a>京东通信</a>
+                                                <a>中国移动</a>
+                                                <a>中国联通</a>
+                                                <a>中国电信</a>
+                                        </div>
+                                    </li>
+                                    <li> 
+                                        <span class="goodsName">洗衣机</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                                <a>手机壳</a>
+                                                <a>贴膜</a>
+                                                <a>手机存储卡</a>
+                                                <a>数据线</a>
+                                                <a>充电器</a>
+                                                <a>手机耳机</a>
+                                                <a>创意配件</a>
+                                                <a>手机饰品</a>
+                                                <a>手机电池</a>
+                                                <a>苹果周边</a>
+                                                <a>移动电源</a>
+                                                <a>蓝牙耳机</a>
+                                                <a>手机支架</a>
+                                                <a>车载配件</a>
+                                                <a>拍照配件</a>
+                                        </div>
+                                    <li>
+                                        <span class="goodsName">电脑</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                                <a>数码相机</a>
+                                                <a>单电/微单相机</a>
+                                                <a>单反相机</a>
+                                                <a>拍立得</a>
+                                                <a>运动相机</a>
+                                                <a>摄像机</a>
+                                                <a>镜头</a>
+                                                <a>户外器材</a>
+                                                <a>影棚器材</a>
+                                                <a>冲印服务</a>
+                                                <a>数码相框</a>
+                                        </div>
+                                    </li>
+                                    <li>    
+                                        <span class="goodsName">微波炉</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                                <a>存储卡</a>
+                                                <a>三脚架/云台</a>
+                                                <a>相机包</a>
+                                                <a>滤镜</a>
+                                                <a>闪光灯/手柄</a>
+                                                <a>相机清洁/贴膜</a>
+                                                <a>机身附件</a>
+                                                <a>镜头附件</a>
+                                                <a>读卡器</a>
+                                                <a>支架</a>
+                                                <a>电池/充电器</a>
+                                        </div>
+                                    <li>
+                                        <span class="goodsName">开水壶</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                                <a>耳机/耳麦</a>
+                                                <a>音响/音箱</a>
+                                                <a>便携音箱</a>
+                                                <a>收音机</a>
+                                                <a>麦克风</a>
+                                                <a>MP3/MP4</a>
+                                                <a>专业音频</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="goodsName">吹风机</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                                <a>智能手环</a>
+                                                <a>智能手表</a>
+                                                <a>智能眼镜</a>
+                                                <a>智能机器人</a>
+                                                <a>运动跟踪器</a>
+                                                <a>健康监测</a>
+                                                <a>智能配饰</a>
+                                                <a>智能家居</a>
+                                                <a>体感车</a>
+                                                <a>无人机</a>
+                                                <a>其他配件</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="goodsName">缝纫机</span><span class="shu">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <div class="as">
+                                                <a>学生平板</a>
+                                                <a>点读机</a>
+                                                <a>早教益智</a>
+                                                <a>录音笔</a>
+                                                <a>电纸书</a>
+                                                <a>电子词典</a>
+                                                <a>复读机</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <div class="lunbo" id="lunbo">   
+                <a>
+                    <div class="banner-slide slide1 slide-active"></div>
+                </a>
+                <a>
+                    <div class="banner-slide slide2"></div>
+                </a>
+                <a>
+                    <div class="banner-slide slide3"></div>
+                </a>
+                <a>
+                    <div class="banner-slide slide4"></div>
+                </a>
+                <a>
+                    <div class="banner-slide slide5"></div>
+                </a>
+                <a href="javascript:void(0)" class="button prev" id="prev"></a>
+                <a href="javascript:void(0)" class="button next" id="next"></a>
+                <div class="dots" id="dots">
+                    <span class="dots-active"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div class="right-nav">
+                <div class="topNav">
+                    <span class="one">慕快报</span><span class="two">更多&nbsp;></span>
+                    <p><span>[特惠]</span>精选图书每满150减50</p>
+                    <p><span>[公告]</span>因广州图书仓搬仓升级配送延迟</p>
+                    <p><span>[特惠]</span>爆款手机12期免息&nbsp;&nbsp;抽奖赢电视</p>
+                    <p><span>[公告]</span>广东、福建受台风影响配送延迟</p>
+                    <p><span>[特惠]</span>大闸蟹领券满399减180</p>
+                </div>
+                <div class="midNav">
+                    <div class="one">
+                        <a><img src="ele/icon/1.png" alt=""></a>
+                        <p class="twoWord">话费</p>
+                    </div>
+                    <div class="two">
+                        <a><img src="ele/icon/2.png" alt=""></a>
+                        <p class="twoWord">机票</p> 
+                    </div>
+                    <div class="three">
+                        <a><img src="ele/icon/3.png" alt=""></a>
+                        <p class="threeWord">电影票</p> 
+                    </div>
+                    <div class="four">
+                        <a><img src="ele/icon/4.png" alt=""></a>
+                        <p class="twoWord">游戏</p> 
+                    </div>
+                    <div class="five">
+                        <a><img src="ele/icon/5.png" alt=""></a>
+                        <p class="twoWord">彩票</p> 
+                    </div>
+                    <div class="six">
+                        <a><img src="ele/icon/6.png" alt=""></a>
+                        <p class="threeWord">加油卡</p> 
+                    </div>    
+                    <div class="seven">
+                            <a><img src="ele/icon/7.png" alt=""></a>
+                            <p class="twoWord">酒店</p> 
+                    </div>
+                    <div class="eight">
+                            <a><img src="ele/icon/8.png" alt=""></a>
+                            <p class="threeWord">火车票</p> 
+                    </div>  
+                    <div class="nine">
+                            <a><img src="ele/icon/9.png" alt=""></a>
+                            <p class="twoWord">众筹</p> 
+                    </div>  
+                    <div class="ten">
+                            <a><img src="ele/icon/10.png" alt=""></a>
+                            <p class="twoWord">理财</p> 
+                    </div>  
+                    <div class="eleven">
+                            <a><img src="ele/icon/11.png" alt=""></a>
+                            <p class="threeWord">礼品卡</p> 
+                    </div> 
+                    <div class="twelve">
+                            <a><img src="ele/icon/12.png" alt=""></a>
+                            <p class="twoWord">白条</p> 
+                    </div>       
+                </div>
+                <div class="botNav">
+                    <img src="ele/ad.png">
+                </div>
+            </div>
+        </div>
+        <div class="floor">
+            <div class="floorOne">
+                <div class="oneTop">
+                    <span class="leftSpan">
+                        <span class="one">1F</span>
+                        <span class="two">服装鞋包</span>
+                    </span>
+                    <span class="rightSpan">
+                        <span id="spansOne">大牌</span>
+                        <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                        <span id="spansTwo">男装</span>
+                        <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                        <span id="spansThree">女装</span>
+                    </span>
+                </div>
+                <hr>
+                <div id="imgOne"></div>
+                <div id="imgTwo"></div>
+                <div id="imgThree"></div>
+                <div class="oneMain">
+                    <div class="floorGoodsOne" id="floorGoodsOne">
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>adidas&nbsp;阿迪达斯&nbsp;训练&nbsp;男子</p>
+                            <span>￥&nbsp;335</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>匡威男棒球开衫外套2015</p>
+                            <span>￥&nbsp;479</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.jpg">
+                            <p>必迈BMAI一体织跑步短袖T恤</p>
+                            <span>￥&nbsp;159</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>NBA袜子半毛圈运动高帮棉袜</p>
+                            <span>￥&nbsp;65</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>特步官方运动帽男女帽子2016</p>
+                            <span>￥&nbsp;69</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>KELME足球迅雷防寒防风手套</p>
+                            <span>￥&nbsp;4999</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/2.jpg">
+                            <p>占地吉普三合一冲锋衣</p>
+                            <span>￥&nbsp;289</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/2.jpg">
+                            <p>探路者户外男士徒步鞋</p>
+                            <span>￥&nbsp;369</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>羽绒服2018秋冬新款轻薄男士</p>
+                            <span>￥&nbsp;399</span>
+                        </div><div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>匡威男棒球开衫外套2015</p>
+                            <span>￥&nbsp;689</span>
+                        </div><div class="mainOne">
+                            <img src="ele/floor/3.jpg">
+                            <p>旅行背包多功能双肩背包</p>
+                            <span>￥&nbsp;269</span>
+                        </div><div class="mainOne">
+                            <img src="ele/floor/3.jpg">
+                            <p>户外旅行双肩背包OS0099</p>
+                            <span>￥&nbsp;99</span>
+                        </div>
+
+                    </div>
+                    <div class="floorGoodsTwo" id="floorGoodsTwo">
+                        <div class="mainOne">
+                            <img src="ele/floor/6.jpg">
+                            <p>adidas&nbsp;阿迪达斯&nbsp;训练&nbsp;男子</p>
+                            <span>￥&nbsp;335</span>
+                        </div>
+                    </div>
+                    <div class="floorGoodsThree" id="floorGoodsThree">
+                        <div class="mainOne">
+                            <img src="ele/floor/4.jpg">
+                            <p>一体织跑步短袖T恤</p>
+                            <span>￥&nbsp;159</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="floorTwo">
+                <div class="oneTop">
+                    <span class="leftSpan">
+                        <span class="one">2F</span>
+                        <span class="two">个护美妆</span>
+                    </span>
+                    <span class="rightSpan">
+                        <span id="spansFour">大牌</span>
+                        <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                        <span id="spansFive">男装</span>
+                        <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                        <span id="spansSix">女装</span>
+                    </span>
+                </div>
+                <hr>
+                <div id="imgFour"></div>
+                <div id="imgFive"></div>
+                <div id="imgSix"></div>
+                <div class="oneMain">
+                    <div class="floorGoodsFour" id="floorGoodsFour">
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>adidas&nbsp;阿迪达斯&nbsp;训练&nbsp;男子</p>
+                            <span>￥&nbsp;335</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>匡威男棒球开衫外套2015</p>
+                            <span>￥&nbsp;479</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.jpg">
+                            <p>必迈BMAI一体织跑步短袖T恤</p>
+                            <span>￥&nbsp;159</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>NBA袜子半毛圈运动高帮棉袜</p>
+                            <span>￥&nbsp;65</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>特步官方运动帽男女帽子2016</p>
+                            <span>￥&nbsp;69</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>KELME足球迅雷防寒防风手套</p>
+                            <span>￥&nbsp;4999</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/2.jpg">
+                            <p>占地吉普三合一冲锋衣</p>
+                            <span>￥&nbsp;289</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/2.jpg">
+                            <p>探路者户外男士徒步鞋</p>
+                            <span>￥&nbsp;369</span>
+                        </div>
+                        <div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>羽绒服2018秋冬新款轻薄男士</p>
+                            <span>￥&nbsp;399</span>
+                        </div><div class="mainOne">
+                            <img src="ele/floor/1.png">
+                            <p>匡威男棒球开衫外套2015</p>
+                            <span>￥&nbsp;689</span>
+                        </div><div class="mainOne">
+                            <img src="ele/floor/3.jpg">
+                            <p>旅行背包多功能双肩背包</p>
+                            <span>￥&nbsp;269</span>
+                        </div><div class="mainOne">
+                            <img src="ele/floor/3.jpg">
+                            <p>户外旅行双肩背包OS0099</p>
+                            <span>￥&nbsp;99</span>
+                        </div>
+
+                    </div>
+                    <div class="floorGoodsFive" id="floorGoodsFive">
+                        <div class="mainOne">
+                            <img src="ele/floor/6.jpg">
+                            <p>adidas&nbsp;阿迪达斯&nbsp;训练&nbsp;男子</p>
+                            <span>￥&nbsp;335</span>
+                        </div>
+                    </div>
+                    <div class="floorGoodsSix" id="floorGoodsSix">
+                        <div class="mainOne">
+                            <img src="ele/floor/4.jpg">
+                            <p>一体织跑步短袖T恤</p>
+                            <span>￥&nbsp;159</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="friendlyLink">
+            <hr>
+            <div class="innerDiv">
+                <p>消费者保障</p>
+                <a>保障范围</a>
+                <a>退货退款流程</a>
+                <a>服务中心</a>
+                <a>更多特色服务</a>
+            </div>
+            <div class="innerDiv">
+                <p>新手上路</p>
+                <a>新手专区</a>
+                <a>消费警示</a>
+                <a>交易安全</a>
+                <a>24小时在线帮助</a>
+                <a>免费开店</a>
+            </div>
+            <div class="innerDiv">
+                    <p>付款方式</p>
+                    <a>快捷支付</a>
+                    <a>信用卡</a>
+                    <a>余额包</a>
+                    <a>蜜蜂花呗</a>
+                    <a>货到付款</a>
+                </div>
+            <div class="innerDiv">
+                    <p>慕淘特色</p>
+                    <a>手机慕淘</a>
+                    <a>慕淘信</a>
+                    <a>B格指南</a>
+                    <a>大众评审</a>
+                </div>
+        </div>
+        <div class="foot">
+            <ul>
+                <li>关于慕淘</li>
+                <li>合作伙伴</li>
+                <li>营销中心</li>
+                <li>廉政举报</li>
+                <li>联系客服</li>
+                <li>开放平台</li>
+                <li>诚征英才</li>
+                <li>联系我们</li>
+                <li>网站地图</li>
+                <li>法律声明</li>
+                <li>知识产权</li>
+            </ul>
+            <p>&copy;&nbsp;imooc.com&nbsp;All&nbsp;Rights&nbsp;Reserverd</p>
+        </div>
+    </div>
+    <script src="js/js.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</body>
+</html>

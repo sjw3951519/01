@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+              var str='welcome-to-beijing';
+              //使用split将str转换为数组
+              var arr=str.split("-");
+              var date='2016/05/05';
+              //["welcome","to","beijing"]
+              var dateArr=date.split("/");
+              console.log(dateArr);
+              console.log(arr);
+              //替换
+              var tel='010-62971268,400-100-9098,010-86789889';
+              //newTel被替换之后的字符串
+              var newTel=tel.replace(',',"  ");
+              console.log(newTel);
+	</script>
+</body>
+</html>

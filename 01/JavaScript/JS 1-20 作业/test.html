@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>出生日期</title>
+</head>
+<body>
+    <script>
+        
+        var year=prompt("请输入您的出生年份"),
+            month=prompt("请输入您的出生月份"),
+            day=prompt("请输入您的出生日期"),
+            trueDay=0,
+            feb=0;
+
+
+        function getDay(year,month,day){
+
+            var day=parseInt(day);
+
+            
+                if((year%4==0 && year%100!=0) || year%400==0){
+                    feb=29;
+                }else{
+                    feb=28;
+                }  
+
+                switch(month){
+                    case "1":
+                    trueDay=day;
+                    break;
+                    case "2":
+                    trueDay=31+day;
+                    break;
+                    case "3":
+                    trueDay=31+feb+day;
+                    break;
+                    case "4":
+                    trueDay=31+feb+31+day;
+                    break;
+                    case "5":
+                    trueDay=31+feb+31+30+day;
+                    break;
+                    case "6":
+                    trueDay=31+feb+31+30+31+day;
+                    break;
+                    case "7":
+                    trueDay=31+feb+31+30+31+30+day;
+                    break;
+                    case "8":
+                    trueDay=31+feb+31+30+31+30+31+day;
+                    break;
+                    case "9":
+                    trueDay=31+feb+31+30+31+30+31+31+day;
+                    break;
+                    case "10":
+                    trueDay=31+feb+31+30+31+30+31+31+30+day;
+                    break;
+                    case "11":
+                    trueDay=31+feb+31+30+31+30+31+31+30+31+day;
+                    break;
+                    default:
+                    trueDay=31+feb+31+30+31+30+31+31+30+31+30+day;
+                    
+
+                }
+                 document.write("您的出生日为当年的第"+trueDay+"天。");
+
+            
+        }
+
+        getDay(year,month,day);
+
+        
+    </script>
+</body>
+</html>

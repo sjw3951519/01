@@ -1,0 +1,820 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>按科室挂号</title>
+    <script src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            border:0;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+        a{
+            text-decoration: none;
+        }
+        .wrap{
+            width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .clearfix:after{
+            content: " ";
+            display: block;
+            height: 0;
+            line-height: 0;
+            clear: both;
+            zoom: 1;
+        }
+        /*#top模块内样式*/
+        .top{
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            color: #868686;
+            background-color: #f5f5f5;
+        }
+        .top .call{
+            float: left;
+            padding-left: 20px;
+            background: url(http://climg.mukewang.com/58c61b9d0001e02d00170017.png) no-repeat center left;
+        }
+        .top .welcome{
+            float: right;
+        }
+        .top a{
+            color: #2da5e1;
+            padding-left: 10px;
+        }
+        /*#header模块内样式*/
+        .header{
+            height: 92px;
+        }
+        .header .logo{
+            width: 492px;
+            height: 74px;
+            padding: 9px 0;
+            display: inline-block;
+        }
+        .header .logo img{
+            width: 100%;
+            height: 100%;
+        }
+        .header .search{
+            width: 326px;
+            height: 38px;
+            position: absolute;
+            right: 0;
+            top: 29px;
+            /*background-color: orange;*/
+        }
+        /*搜索*/
+        .ui-search{
+            background: url(http://climg.mukewang.com/58c61b7e00012b9303260038.jpg) center no-repeat;
+            font-size: 14px;
+            color: #fff;
+            position: relative;
+        }
+        .ui-search-selected{
+            width: 70px;
+            height: 38px;
+            line-height: 38px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-indent: 14px;
+        }
+        .ui-search-select-list{
+            position: absolute;
+            width: 67px;
+            line-height: 24px;
+            background-color: #fff;
+            box-shadow: 3px 3px 5px rgba(0,0,0,.2);
+            left: 2px;
+            top: 36px;
+            z-index: 2;
+            display: none;
+        }
+        .ui-search-select-list a{
+            display: block;
+            color: #a5a2a2;
+            text-align: center;
+        }
+        .ui-search-select-list a:hover{
+            color: #ebeef5;
+        }
+        .ui-search-input{
+            width: 208px;
+            height: 26px;
+            position: absolute;
+            top: 5px;
+            left: 73px;
+            line-height: 26px;
+            font-size: 13px;
+            color: #a5a2a2;
+        }
+        input{
+            outline: none;
+            background: transparent;
+            border: none;
+            
+        }
+        .ui-search-submit{
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 1px;
+            width: 40px;
+            width: 36px;
+        }
+        /*#nav模块内样式*/
+        .nav{
+            height: 36px;
+            background-color: #60bff2;
+        }
+        .nav .link{
+            display: inline-block;
+            float: left;
+            padding-left: 30px;
+            padding-right: 30px;
+            line-height: 36px;
+            color: #fff;
+            font-size: 16px;
+            min-width: 80px;
+            text-align: center;
+        }
+        .nav .link_focus{
+            background-color: #1fa4f0;
+        }
+        .nav a:hover{
+            color: #d7f3ff;
+        }
+        .nav .right{
+            float: right;
+        }
+        /*content模块内样式*/
+        .content{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        /*dept_nav*/
+        .dept_nav{
+            font-size: 14px;
+        }
+        .dept_nav .dept_logo{
+            width: 138px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            background: url(http://climg.mukewang.com/58c61a4f0001967a01380030.jpg) center no-repeat;
+        }
+        .dept_nav .dept_details{
+            border: 1px solid #868686;
+            border-top: 2px solid #60bff2; 
+            position: relative;
+        }
+        .dept_nav .dept_details .links{
+            width: 75%;
+            padding-top: 15px;
+            padding-left: 25px;
+            padding-bottom: 5px;
+        }
+        .dept_nav .dept_details .links a{
+            display: inline-block;
+            color: #333;
+            margin-bottom: 10px;
+            width: 120px;
+            text-align: left;
+        }
+        .dept_nav .dept_details .links .hide{
+            display: none;
+        }
+        .dept_nav .dept_details .dept_show{
+            position: absolute;
+            top: 44px;
+            right: 50px;
+        }
+        .dept_nav .dept_details .dept_show a{
+            color: blue;
+            border-bottom: 1px solid blue;
+        }
+
+        .dept_list{
+            width: 190px;
+            height: 870px;
+            float: left;
+            border: 1px solid #868686;
+            margin-top: 30px;
+            font-size: 14px;
+            padding: 10px;
+        }
+        .dept_list .links{
+            height: 30px;
+            line-height: 30px;
+        }
+        .dept_list .links .img{
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            vertical-align: middle;
+            margin-right: 5px;
+            background: url(http://climg.mukewang.com/58c61b610001c58300440638.jpg) no-repeat;
+        }
+        .dept_list .links a{
+            color: #333;
+        }
+        .dept_list .links .right{
+            color: #333;
+            float: right;
+        }
+
+        .dept_all{
+            width: 750px;
+            float: right;
+            border: 1px solid #868686;
+            margin-top: 30px;
+            padding: 30px 10px;
+            font-size: 14px;
+        }
+        .dept_all .details .caption{
+            height: 30px;
+            line-height: 30px;
+            color: #60bff2;
+            text-indent: 25px;
+            border-bottom: 1px dotted #868686;
+        }
+        .dept_all .details .links{
+            padding-left: 35px;
+            padding-top: 15px;
+            padding-bottom: 5px;
+        }
+        .dept_all .details a{
+            color: #666;
+            display: inline-block;
+            width: 140px;
+            text-align: left;
+            line-height: 25px;
+        }
+        /*#footer模块内样式*/
+        .footer{
+            height: 70px;
+            padding: 25px 0;
+            background-color: #eceef2;
+            line-height: 70px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="top" class="top">
+        <div class="wrap">
+            <p class="call">010-114/116114电话预约</p>
+            <p class="welcome">欢迎来到城市医院预约挂号统一平台&nbsp;请&nbsp;
+                <a href="#">登录</a>
+                <a href="#">注册</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#">帮助中心</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="header" class="header">
+        <div class="wrap clearfix">
+            <a href="#" class="logo"><img src="http://climg.mukewang.com/58c61b2f0001f5c008400172.png"></a>
+            <div class="search ui-search">
+                <div class="ui-search-selected">医院</div>
+                <div class="ui-search-select-list">
+                    <a href="#">科室</a>
+                    <a href="#">疾病</a>
+                    <a href="#">医院</a>
+                </div>
+                <input type="text" name="search-content" class="ui-search-input" placeholder="请输入搜索内容">
+                <a href="#" class="ui-search-submit">&nbsp;</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="nav" class="nav">
+        <div class="wrap">
+            <a href="#" class="link">首页</a>
+            <a href="#" class="link">按医院挂号</a>
+            <a href="#" class="link link_focus">按科室挂号</a>
+            <a href="#" class="link">按疾病挂号</a>
+            <a href="#" class="link">最新公告</a>
+            <a href="#" class="link right">社会知名医院</a>
+        </div>
+    </div>
+ 
+    <div id="content" class="content">
+        <div class="wrap clearfix">
+            <div id="dept_nav" class="dept_nav">
+                <div class="dept_logo">热门科室</div>
+                <div class="dept_details">
+                    <div class="links">
+                        <a href="#" class="link">神经外科</a>
+                        <a href="#" class="link">妇科</a>
+                        <a href="#" class="link">产科</a>
+                        <a href="#" class="link">儿科</a>
+                        <a href="#" class="link">骨科</a>
+                        <a href="#" class="link">眼科</a>
+                        <a href="#" class="link">耳鼻喉</a>
+                        <a href="#" class="link">肿瘤外科</a>
+                        <a href="#" class="link">肿瘤综合科</a>
+                        <a href="#" class="link">皮肤美容</a>
+                        <a href="#" class="link">心理咨询</a>
+                        <a href="#" class="link">中医科</a>
+                        <a href="#" class="link hide">神经外科</a>
+                        <a href="#" class="link hide">妇科</a>
+                        <a href="#" class="link hide">产科</a>
+                        <a href="#" class="link hide">儿科</a>
+                        <a href="#" class="link hide">骨科</a>
+                        <a href="#" class="link hide">眼科</a>
+                        <a href="#" class="link hide">耳鼻喉</a>
+                        <a href="#" class="link hide">肿瘤外科</a>
+                        <a href="#" class="link hide">肿瘤综合科</a>
+                        <a href="#" class="link hide">皮肤美容</a>
+                        <a href="#" class="link hide">心理咨询</a>
+                        <a href="#" class="link hide">中医科</a>
+                    </div>
+                    <div class="dept_show ui-show">
+                        <a href="#" class="link">展开全部</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dept_list" class="dept_list ui-list">
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">外科</a>
+                    <span class="right">&gt;</span>
+                </div>
+                <div class="links">
+                    <div class="img"></div>
+                    <a href="#" class="link">内科</a>
+                    <span class="right">&gt;</span>
+                </div>
+            </div>
+
+            <div id="dept_all" class="dept_all">
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="caption">内科</div>
+                    <div class="links">
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                        <a href="#" class="link">内分泌科</a>
+                        <a href="#" class="link">免疫科</a>
+                        <a href="#" class="link">心血管内科</a>
+                        <a href="#" class="link">神经内科</a>
+                        <a href="#" class="link">消化内科</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" class="footer">
+        CopyRight &copy; 2017慕课网版权所有
+    </div>
+
+    <script>
+        // ui-search定义
+        $.fn.UiSearch = function(){
+            var ui = $(this);
+
+            $('.ui-search-selected',ui).on('click',function(){
+                $('.ui-search-select-list').show();
+                return false;
+            });
+
+            $('.ui-search-select-list a',ui).on('click',function(){
+                $('.ui-search-selected').text($(this).text());
+                $('.ui-search-select-list').hide();
+                return false;
+            });
+
+            $('body').on('click',function(){
+                $('.ui-search-select-list').hide();
+            });
+        }
+        //ui-show定义
+        $.fn.UiShow = function(){
+            var ui = $(this);
+            var links = $('.dept_details .links').find('.hide');
+            var text = ui.find('a').text();
+            var flag = false;
+            $('.link',ui).on('click',function(){
+                if(flag){                
+                    links.css({'display' : 'none'});
+                    ui.find('a').text('展开全部');
+                    flag = false;
+                }else{
+                    links.css({'display' : 'inline-block'});
+                    ui.find('a').text('隐藏全部');
+                    flag = true;
+                }
+            });
+        }
+        //ui-list
+        $.fn.UiList = function(){
+            var ui = $(this);
+            var imgs = ui.find('.links').find('.img');
+            imgs.each(function(index){
+                $(this).css({
+                    'background-position-y' :
+                    -22 * index+1 + 'px'
+                });
+            });
+        }
+        // 页面的脚本逻辑
+        $(function(){
+            $('.ui-search').UiSearch();
+
+            $('.ui-show').UiShow();
+
+            $('.ui-list').UiList();
+        })
+    </script>
+</body>
+</html>
